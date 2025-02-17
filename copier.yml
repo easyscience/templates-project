@@ -1,0 +1,14 @@
+_subdirectory: template
+
+_answers_file: .copier-answers.project-hub.yml
+
+project:
+  name:
+    type: str
+  description:
+    type: str
+  year:
+    type: int
+  repos:
+    lib:
+      type: str
