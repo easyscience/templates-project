@@ -1,12 +1,78 @@
+# Define the subdirectory containing the template files
 _subdirectory: template
 
-_answers_file: .copier-answers.project-hub.yml
+# Specify the file to store user responses
+_answers_file: .copier-answers.project.yml
 
+# Project name with the 'Easy' prefix
 project_name:
   type: str
-project_description:
+  help: "Enter the project name, prefixed with 'Easy' (e.g., EasyDiffraction)."
+
+# Short project description
+description:
   type: str
-project_year:
+  help: "Provide a short description of the project (e.g., 'Diffraction data analysis')."
+
+# Deployment type: library, application, or both
+deployment_type:
+  type: str
+  default: "lib"
+  choices:
+    - lib
+    - app
+    - both
+  help: "Specify how the project will be deployed: as a library ('lib'), an application ('app'), or both."
+
+# Home repository under the EasyScience organization
+home_repo:
+  type: str
+  default: "{{ project_name | replace('Easy', '') | lower }}"
+  help: "Enter the project's home repository name under the EasyScience organization (e.g., 'diffraction')."
+
+# Library repository under the EasyScience organization
+lib_repo:
+  type: str
+  when: "{{ deployment_type in ['lib', 'both'] }}"
+  default: "{{ project_name | replace('Easy', '') | lower }}-lib"
+  help: "Enter the library repository name under the EasyScience organization (e.g., 'diffraction-lib')."
+
+# Application repository under the EasyScience organization
+app_repo:
+  type: str
+  when: "{{ deployment_type in ['app', 'both'] }}"
+  default: "{{ project_name | replace('Easy', '') | lower }}-app"
+  help: "Enter the application repository name under the EasyScience organization (e.g., 'diffraction-app')."
+
+# Python package name
+package_name:
+  type: str
+  when: "{{ deployment_type in ['lib', 'both'] }}"
+  default: "{{ project_name | lower() }}"
+  help: "Specify the project's Python package name (use lowercase letters)."
+
+# Project website URL
+home_url:
+  type: str
+  default: "https://{{ project_name | replace('Easy', '') | lower() }}.org"
+  help: "Enter the project's website URL. If a custom domain is not used, use the GitHub Pages URL, e.g., 'https://easyscience.github.io/diffraction'."
+
+# Library documentation URL
+lib_docs_url:
+  type: str
+  when: "{{ deployment_type in ['lib', 'both'] }}"
+  default: "https://docs.{{ project_name | replace('Easy', '') | lower() }}.org/lib"
+  help: "Enter the URL for the project's library documentation."
+
+# Application documentation URL
+app_docs_url:
+  type: str
+  when: "{{ deployment_type in ['app', 'both'] }}"
+  default: "https://docs.{{ project_name | replace('Easy', '') | lower() }}.org/app"
+  help: "Enter the URL for the project's application documentation."
+
+# Project's copyright year
+year:
   type: int
-project_repos_lib:
-  type: str
+  default: 2025
+  help: "Specify the project's copyright year."
