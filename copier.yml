@@ -44,13 +44,6 @@ project__repos__app:
   default: "{{ project__name | replace('Easy', '') | lower }}-app"
   help: "Enter the application repository name under the EasyScience organization (e.g., 'diffraction-app')."
 
-# Python package name
-lib__package_name:
-  type: str
-  when: "{{ project__deployment_type in ['lib', 'both'] }}"
-  default: "{{ project__name | lower }}"
-  help: "Specify the project's Python package name (use lowercase letters)."
-
 # Project website URL
 project__urls__homepage:
   type: str
