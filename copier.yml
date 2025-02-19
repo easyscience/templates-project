@@ -18,9 +18,9 @@ project__short_description:
 project__extended_description:
   type: str
   help: |
-    "Provide an extended description of the project, in a form of what is it needed for
-    (e.g., 'calculating neutron powder diffraction patterns based on a structural
-    model and refining its parameters against experimental data')."
+    Provide an extended description of the project, in a form of what is it needed for
+       (e.g., 'calculating neutron powder diffraction patterns based on a structural
+       model and refining its parameters against experimental data').
 
 # Deployment type: library, application, or both
 project__deployment_type:
