@@ -66,14 +66,14 @@ jobs:
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
-          token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          retain_days: ${{ github.event.inputs.days }}
-          keep_minimum_runs: ${{ github.event.inputs.minimum_runs }}
+          token: {% raw %}${{ github.token }}{% endraw %}
+          repository: {% raw %}${{ github.repository }}{% endraw %}
+          retain_days: {% raw %}${{ github.event.inputs.days }}{% endraw %}
+          keep_minimum_runs: {% raw %}${{ github.event.inputs.minimum_runs }}{% endraw %}
           delete_workflow_pattern:
-            ${{ github.event.inputs.delete_workflow_pattern }}
+            {% raw %}${{ github.event.inputs.delete_workflow_pattern }}{% endraw %}
           delete_workflow_by_state_pattern:
-            ${{ github.event.inputs.delete_workflow_by_state_pattern }}
+            {% raw %}${{ github.event.inputs.delete_workflow_by_state_pattern }}{% endraw %}
           delete_run_by_conclusion_pattern:
-            ${{ github.event.inputs.delete_run_by_conclusion_pattern }}
-          dry_run: ${{ github.event.inputs.dry_run }}
+            {% raw %}${{ github.event.inputs.delete_run_by_conclusion_pattern }}{% endraw %}
+          dry_run: {% raw %}${{ github.event.inputs.dry_run }}{% endraw %}
