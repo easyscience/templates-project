@@ -1,6 +1,10 @@
 # Define the subdirectory containing the template files
 _subdirectory: template
 
+# Additional paths from where to search for templates
+_extra_paths:
+  - filters.py  # Load custom filters
+
 # Specify the file to store user responses
 _answers_file: .copier-answers.project-base.yml
 
