@@ -2,7 +2,7 @@
 _subdirectory: template
 
 # Specify the file to store user responses
-_answers_file: .copier-answers.project.yml
+_answers_file: .copier-answers.project-base.yml
 
 # Project name with the 'Easy' prefix
 project__name:
