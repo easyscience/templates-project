@@ -60,21 +60,21 @@ project__repos__app:
 # Project website URL
 project__urls__homepage:
   type: str
-  default: "https://{{ project__name | replace('Easy', '') | lower }}.org"
+  default: "https://{{ project__name | lower }}.org"
   help: "Enter the project's website URL. If a custom domain is not used, use the GitHub Pages URL, e.g., 'https://easyscience.github.io/diffraction'."
 
 # Library documentation URL
 project__urls__lib_docs:
   type: str
   when: "{{ project__deployment_type in ['lib', 'both'] }}"
-  default: "https://docs.{{ project__name | replace('Easy', '') | lower }}.org/lib"
+  default: "https://docs.{{ project__name | lower }}.org/lib"
   help: "Enter the URL for the project's library documentation."
 
 # Application documentation URL
 project__urls__app_docs:
   type: str
   when: "{{ project__deployment_type in ['app', 'both'] }}"
-  default: "https://docs.{{ project__name | replace('Easy', '') | lower }}.org/app"
+  default: "https://docs.{{ project__name | lower }}.org/app"
   help: "Enter the URL for the project's application documentation."
 
 # Project's copyright year
