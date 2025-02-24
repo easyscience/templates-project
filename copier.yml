@@ -68,14 +68,14 @@ project__urls__lib_docs:
   type: str
   when: "{{ project__deployment_type in ['lib', 'both'] }}"
   default: "https://docs.{{ project__name | lower }}.org/lib"
-  help: "Enter the URL for the project's library documentation."
+  help: "Enter the URL for the project's library documentation. If a custom domain is not used, use the GitHub Pages URL, e.g., 'https://easyscience.github.io/diffraction-lib'."
 
 # Application documentation URL
 project__urls__app_docs:
   type: str
   when: "{{ project__deployment_type in ['app', 'both'] }}"
   default: "https://docs.{{ project__name | lower }}.org/app"
-  help: "Enter the URL for the project's application documentation."
+  help: "Enter the URL for the project's application documentation. . If a custom domain is not used, use the GitHub Pages URL, e.g., 'https://easyscience.github.io/diffraction-app'."
 
 # Project's copyright year
 project__copyright_year:
